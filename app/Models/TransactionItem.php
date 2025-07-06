@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TransactionItem extends Model
 {
-    protected $table = 'transactions_item';
+    protected $table = 'transaction_items';
     protected $fillable = [
         'transaction_id', 
         'item_id',

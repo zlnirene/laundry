@@ -1,128 +1,101 @@
-<?php 
-$user_id = 1;
-?>
+
 @extends('layouts.index')
 
 @section('content')
-<div class="w-[90%] mx-auto mt-[2vh]">
-        <h1 class="text-navy font-semibold text-[18px]">Item Service</h1>
-
-
-    <div class="flex gap-2 place-content-end pt-2">
-        <div class="bg-light w-[200px] h-[35px] flex items-center rounded-[8px] border-[1.5px] border-navy">
-            <select class="js-item-basic-single from-control w-full text-sm" name="" id="">
-                <option value="wash">Wash</option>
-                <option value="wash_and_iron">Wash and Iron</option>
-                <option value="dry_clean">Dry Clean</option>
-                <option value="steam">Steam</option>
-            </select>
-        </div>
-        
-        <div class="flex gap-2 w-fit *:h-[35px] *:bg-light text-navy *:rounded-[8px] *:content-center *:justify-center *:hover:bg-navy *:hover:text-light *:border-[1.5px] *:border-navy">
-          <div class="w-[80px] flex items-center gap-1">
-            <a href="{{ route('item.create') }}" class="flex items-center gap-1 no-underline font-medium"><x-fas-plus class="size-[20px]"/>New</a>
-          </div>
-
-          <div class="w-[130px] flex items-center gap-1 hover:*:first:bg-light hover:*:first:text-navy">
-            <div class="bg-navy w-fit rounded-sm px-[2px] h-fit hover:text-navy text-light self-center flex items-center gap-0.5">
-              <div class="">
-                <select name="perPage" id="perPage" class="*:text-navy">
+<div class="flex gap-2 place-content-end text-[14px]">
+    {{-- <div class="bg-light w-[200px] h-[35px] flex items-center rounded-[8px] border-[1.5px] border-blue">
+        <select class="js-item-basic-single from-control w-full" name="items" id="">
+            <option value="wash">Wash</option>
+            <option value="wash_and_iron">Wash and Iron</option>
+            <option value="dry_clean">Dry Clean</option>
+            <option value="steam">Steam</option>
+        </select>
+    </div> --}}
+    
+    <div class="flex gap-2 *:bg-blue text-light *:rounded-[8px] *:transition-all duration-300 *:content-center *:justify-center *:border-[1.5px] *:last:hover:bg-light *:last:hover:text-blue *:border-blue font-medium">
+        {{-- <div class=" flex items-center gap-1 px-[5px]">
+            <span>Showing</span>
+            <div class="bg-light w-fit rounded-sm p-[2px] h-fit text-blue self-center flex items-center gap-0.5">
+                <select name="perPage" id="perPage" class="*:text-blue">
                     <option value="10">10</option>
                     <option value="25">25</option>
                     <option value="50">50</option>
                     <option value="100">100</option>
                 </select>
-              </div>
-              
             </div>
-            <div class="">per page</div>
-          </div>
+        </div> --}}
+        <div class="flex items-center gap-1 px-3 py-1">
+            <button type="button" onclick="info()" class="flex items-center gap-1 no-underline"><i class="fa-solid fa-plus"></i>New</button>
         </div>
     </div>
-        <div class="min-w-full border-3 border-blue rounded-[15px] mt-[10px]">
-          <table class="group table-auto mx-auto w-full *:*:*:text-center *:*:*:first:w-[100px] [thead>tr>th:nth-child(1)]:w-[100px] [thead>tr>th:nth-child(2)]:w-[200px] [thead>tr>th:nth-child(3)]:w-[200px]">
-            <thead class="bg-blue h-[30px] text-light *:first:*:first:rounded-tl-[10px] *:first:*:last:rounded-tr-[10px] ">
-              <tr class="*:first:pl-[50px]">
-                <th class=""></th>
-                <th class="">Item</th>
-                <th class="">Unit</th>
-                <th class="">Price</th>
-                <th class="">Action</th>
-              </tr>
-            </thead>
-            <tbody class="bg-light *:*:h-[5vh] *:*:px-[1vw] rounded-es-xl *:last:*:first:rounded-bl-xl *:last:*:last:rounded-br-xl divide-y-[1.5px] divide-blue *:last:*:pb-[20px]  *:*:text-center *:*:p-[5px] *:*:first:pl-[50px]">
-              <tr>
-                <td><img src="{{ url('images/wash.jpg') }}" class="size-[40px] rounded-[5px]" alt=""></td>
-                <td>Wash</td>
-                <td>3kg</td>
-                <td>$1.00</td>
-                <td>
-                    <div class="flex gap-3 justify-center  *:border-[1.5px] border-navy *:p-[7px] *:text-navy *:hover:bg-navy *:hover:text-light *:h-[35px] \  *:self-center *:flex *:items-center *:justify-center *:rounded-[5px]">
-                        <a class="" href="{{ route('item.edit',['id'=> $user_id]) }}"><x-fas-pencil class="size-[20px] mr-[5px]"/>Edit</a>
-                        <a href="{{ route('item.destroy',['id'=> $user_id]) }}"><x-fas-trash class="size-[20px] mr-[5px]"/>Delete</a>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="{{ url('images/wash.jpg') }}" class="size-[40px] rounded-[5px]" alt=""></td>
-                <td>Wash</td>
-                <td>3kg</td>
-                <td>$1.00</td>
-                <td>
-                    <div class="flex gap-3 justify-center  *:border-[1.5px] border-navy *:p-[7px] *:text-navy *:hover:bg-navy *:hover:text-light *:h-[35px] \  *:self-center *:flex *:items-center *:justify-center *:rounded-[5px]">
-                        <a class="" href="{{ route('item.edit',['id'=> $user_id]) }}"><x-fas-pencil class="size-[20px] mr-[5px]"/>Edit</a>
-                        <a href="{{ route('item.destroy',['id'=> $user_id]) }}"><x-fas-trash class="size-[20px] mr-[5px]"/>Delete</a>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="{{ url('images/wash.jpg') }}" class="size-[40px] rounded-[5px]" alt=""></td>
-                <td>Wash</td>
-                <td>3kg</td>
-                <td>$1.00</td>
-                <td>
-                    <div class="flex gap-3 justify-center  *:border-[1.5px] border-navy *:p-[7px] *:text-navy *:hover:bg-navy *:hover:text-light *:h-[35px] \  *:self-center *:flex *:items-center *:justify-center *:rounded-[5px]">
-                        <a class="" href="{{ route('item.edit',['id'=> $user_id]) }}"><x-fas-pencil class="size-[20px] mr-[5px]"/>Edit</a>
-                        <a href="{{ route('item.destroy',['id'=> $user_id]) }}"><x-fas-trash class="size-[20px] mr-[5px]"/>Delete</a>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="{{ url('images/wash.jpg') }}" class="size-[40px] rounded-[5px]" alt=""></td>
-                <td>Wash</td>
-                <td>3kg</td>
-                <td>$1.00</td>
-                <td>
-                    <div class="flex gap-3 justify-center  *:border-[1.5px] border-navy *:p-[7px] *:text-navy *:hover:bg-navy *:hover:text-light *:h-[35px] \  *:self-center *:flex *:items-center *:justify-center *:rounded-[5px]">
-                        <a class="" href="{{ route('item.edit',['id'=> $user_id]) }}"><x-fas-pencil class="size-[20px] mr-[5px]"/>Edit</a>
-                        <a href="{{ route('item.destroy',['id'=> $user_id]) }}"><x-fas-trash class="size-[20px] mr-[5px]"/>Delete</a>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="{{ url('images/wash.jpg') }}" class="size-[40px] rounded-[5px]" alt=""></td>
-                <td>Wash</td>
-                <td>3kg</td>
-                <td>$1.00</td>
-                <td>
-                    <div class="flex gap-3 justify-center  *:border-[1.5px] border-navy *:p-[7px] *:text-navy *:hover:bg-navy *:hover:text-light *:h-[35px] \  *:self-center *:flex *:items-center *:justify-center *:rounded-[5px]">
-                        <a class="" href="{{ route('item.edit',['id'=> $user_id]) }}"><x-fas-pencil class="size-[20px] mr-[5px]"/>Edit</a>
-                        <a href="{{ route('item.destroy',['id'=> $user_id]) }}"><x-fas-trash class="size-[20px] mr-[5px]"/>Delete</a>
-                    </div>
-                </td>
-              </tr>
-    
-            </tbody>
-          </table>
-        </div>
 </div>
-<script>
-$(document).ready(function() {
-    $('.js-item-basic-single').select2({
-        theme: 'tailwindcss-3',
-        allowClear: true,
-        placeholder: "Select item",
-    })
-});
-</script>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6" id="table">
+</div>
+<div id="modal_info" class="fixed inset-0 z-[2] hidden overflow-y-auto overflow-x-hidden outline-none backdrop-blur-sm bg-black/50 flex items-center justify-center">
+    <div class="modal-dialog modal-lg w-full max-w-3xl">
+        <div class="modal-content bg-white rounded-lg shadow-xl py-5" id="modal_info_profile">
+        </div>
+    </div>
+</div>
+
+
+
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('.js-item-basic-single').select2({
+                theme: 'tailwindcss-3',
+                allowClear: true,
+                placeholder: "Select item",
+            })
+        });
+
+        let delete_data = (id) => {
+            $.post(base_url + "/" + id, {_token: "{{ csrf_token() }}", _method: "delete"}, () => {
+                window.location.reload();
+            })
+        }
+
+        let $form_search = $('#form_search'),
+            $table = $('#table'),
+            $modal_info = $('#modal_info'),
+            $modal_info_profile = $('#modal_info_profile');
+        let selected_page = 1, _token = '{{ csrf_token() }}', base_url = '{{ route('item.index') }}', params_url = '{{ $params ?? '' }}';
+
+        let init = () => {
+            $modal_info_profile.html('');
+            search_data(selected_page);
+            $modal_info.addClass('hidden');
+        }
+
+        let search_data = (page = 1) => {
+            let data = get_form_data($form_search);
+            data.paginate = 10;
+            data.page = selected_page = get_selected_page(page, selected_page);
+            data._token = _token;
+            $.post(base_url + '/search?' + params_url, data, (result) => $table.html(result)).fail((xhr) => $table.html(xhr.responseText));
+        }
+
+        let display_modal_info = (profile) => {
+            $modal_info_profile.html(profile);
+            $modal_info.removeClass('hidden');
+        }
+    
+        let info = (id = '') => {
+            console.log(id);
+            $.get(base_url + '/' + (id === '' ? 'create' : (id + '/edit')), (result) => {
+                display_modal_info(result);
+            }).fail((xhr) => {
+                display_modal_info(xhr.responseText)
+            });
+        }
+
+        $form_search.submit((e) => {
+            e.preventDefault();
+            search_data();
+        });
+
+        init();
+    </script>
+@endpush

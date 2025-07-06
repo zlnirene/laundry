@@ -3,7 +3,7 @@ $user_id = 1;
 ?>
 @extends('layouts.index')
 @section('content')
-<div class="w-[90%] mx-auto mt-[2vh]">
+<div class="">
         <h1 class="text-navy font-semibold text-xl">Item Service</h1>
         <div class="flex justify-between pt-2">
             <div class="bg-light w-[200px] h-[35px] flex items-center rounded-xl border-[1.5px] border-navy">

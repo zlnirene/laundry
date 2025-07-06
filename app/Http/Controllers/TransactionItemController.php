@@ -18,6 +18,7 @@ class TransactionItemController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->all());
         return redirect()->route('transaction_item.index');
     }
 

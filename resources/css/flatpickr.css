@@ -1,0 +1,81 @@
+.flatpickr-calendar {
+    @apply absolute top-0 bg-light! rounded-[10px]! text-blue! shadow-lg! p-[5px]! pt-[10px]! w-auto! flex! flex-col! gap-[5px]!;
+}
+
+.dayContainer {
+    @apply gap-[2px]!;
+}
+
+.flatpickr-day {
+    @apply p-[1px]! text-blue! transition-all! duration-200! rounded-[6px]!;
+}
+
+.flatpickr-day.today {
+    @apply border-blue!; /* yellow-400 */
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+    @apply bg-blue! text-light! border-blue!;
+}
+
+.flatpickr-day.startRange {
+    @apply rounded-none! rounded-l-[6px]!;
+}
+
+.flatpickr-day.endRange {
+    @apply rounded-none! rounded-r-[6px]!;
+}
+
+.flatpickr-day.inRange {
+    @apply bg-blue! text-light! shadow-[-5px_0_0_#4D82BC,5px_0_0_#4D82BC]! rounded-none! border-none!;
+}
+
+.flatpickr-day.flatpickr-disabled, .flatpickr-day.flatpickr-disabled:not(.nextMonthDay):hover {
+    @apply bg-light/30! text-blue! border-light/30! cursor-not-allowed!;
+}
+
+.flatpickr-day.prevMonthDay, .flatpickr-day.nextMonthDay {
+    @apply text-blue/30!; 
+}
+
+.flatpickr-day:not(.flatpickr-disabled):hover {
+    @apply bg-blue/75! text-light! border-blue!;
+}
+
+.flatpickr-months {
+    @apply bg-none! font-bold! items-center! text-center! relative!;
+}
+
+.flatpickr-months .flatpickr-next-month, .flatpickr-months .flatpickr-prev-month  {
+    @apply p-[0] static flex items-center hover:bg-light rounded-[6px] hover:*:fill-blue! hover:*:text-blue! transition-all duration-200!;
+}
+
+.flatpickr-weekday {
+    @apply text-blue! font-medium!;
+}
+
+.flatpickr-current-month {
+    @apply pt-[6px]!;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months option {
+    @apply bg-light! hover:bg-light text-blue!;
+}
+
+.flatpickr-calendar.arrowTop::after, .flatpickr-calendar.arrowTop::before{
+    @apply invisible!;
+}
+
+.flatpickr-time {
+    @apply border-none!;
+}
+
+.flatpickr-hour, .flatpickr-minute {
+    @apply text-blue! font-medium!;
+}
+
+.flatpickr-hour:focus, .flatpickr-minute:focus {
+    @apply bg-light/25!;
+}

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('transaction_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('transaction_id')->nullable()->constrained('transactions');
+            $table->foreignId('transaction_id')->nullable()->constrained('transactions')->onDelete('cascade');
             $table->foreignId('item_id')->nullable()->constrained('items');
             $table->integer('quantity');
             $table->double('price');

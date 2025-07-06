@@ -13,6 +13,7 @@ class ItemService extends Service
         $name = $params['name'] ?? '';
         if ($name !== '') $item = $item->where('name', 'like', "%$name%");
 
+        $item = $this->searchFilter($params, $item, ['items']);
         return $this->searchResponse($params, $item);
     }
 
@@ -23,6 +24,11 @@ class ItemService extends Service
 
     public function store($params)
     {
+        if (isset($params['image']) && $params['image'] instanceof \Illuminate\Http\UploadedFile) {
+            $filename = time() . '_' . $params['image']->getClientOriginalName();
+            $params['image']->storeAs('public/items', $filename);
+            $params['image'] = $filename;
+        }
         return Item::create($params);
     }
 
